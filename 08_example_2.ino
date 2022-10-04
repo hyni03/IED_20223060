@@ -52,11 +52,14 @@ void loop() {
     digitalWrite(PIN_LED, 1);       // LED OFF
   } 
   else {    // In desired Range
-    if(distance <= 200){
+    if(distance == 200){
+      analogWrite(PIN_LED, 0);
+    }
+    else if(distance < 200){
       analogWrite(PIN_LED, 255 - (distance-100)*num);
     }
     else {
-      analogWrite(PIN_LED, ((distance-100)*num));
+      analogWrite(PIN_LED, ((distance-200)*num));
     }
     //digitalWrite(PIN_LED, 0);       // LED ON      
   }
